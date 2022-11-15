@@ -32,9 +32,8 @@ using (SqlConnection connessioneSql = new SqlConnection(connectionString))
     {
         connessioneSql.Open();
 
-        string insertQuery = "INSERT INTO Documenti (id, codice,titolo,anno,settore,scaffale,autore,stato) VALUES(@Id, @Codice,@Titolo,@Anno,@Settore,@Scaffale,@Autore,@Stato)";
+        string insertQuery = "INSERT INTO Documenti (codice,titolo,anno,settore,scaffale,autore,stato) VALUES(@Codice,@Titolo,@Anno,@Settore,@Scaffale,@Autore,@Stato)";
         SqlCommand insertCommand = new SqlCommand(insertQuery, connessioneSql);
-        insertCommand.Parameters.Add(new SqlParameter("@Id", "1"));
         insertCommand.Parameters.Add(new SqlParameter("@Codice", "99999999"));
         insertCommand.Parameters.Add(new SqlParameter("@Titolo", "Thriler"));
         insertCommand.Parameters.Add(new SqlParameter("@Anno", 2009));
